@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Фронтальный фон - линейный градиент и центровка */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Контейнер карточки */
+.counter-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 320px;
+}
+
+/* Окошко результата */
+.result-box {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #333;
+}
+
+/* Цвета фона по ТЗ */
+.result-box.red {
+    background-color: #ff4d4d; /* Красный при 0 */
+    color: #fff;
+}
+
+.result-box.yellow {
+    background-color: #ffeb3b; /* Желтый при > 0 */
+    color: #000;
+}
+
+.result-box.green {
+    background-color: #4caf50; /* Зеленый при < 0 */
+    color: #fff;
+}
+
+/* Блок кнопок */
+.buttons-wrapper {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Кнопки с градиентом и скруглением 5px по ТЗ */
+.btn {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    border-radius: 5px; /* Радиальное скругление 5px */
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.3s;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+/* Неактивная кнопка */
+.btn:disabled {
+    background: linear-gradient(45deg, #888888, #aaaaaa);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Окошко для сообщений */
+.message-box {
+    min-height: 40px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #ffeb3b;
+    font-weight: 600;
+}
