@@ -1,100 +1,92 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Фронтальный фон - линейный градиент и центровка */
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #e2c0e9, #103a21);
 }
 
-/* Контейнер карточки */
 .counter-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    width: 320px;
+    gap: 25px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Окошко результата */
 .result-box {
-    width: 100%;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 56px;
     font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    color: #333;
+    color: #222;
+    border-radius: 20px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
 }
 
-/* Цвета фона по ТЗ */
-.result-box.red {
-    background-color: #ff4d4d; /* Красный при 0 */
-    color: #fff;
+.result-box.positive {
+    background: #ebd766;
 }
 
-.result-box.yellow {
-    background-color: #ffeb3b; /* Желтый при > 0 */
-    color: #000;
+.result-box.negative {
+    background: #7ee481; 
 }
 
-.result-box.green {
-    background-color: #4caf50; /* Зеленый при < 0 */
-    color: #fff;
+.result-box.zero {
+    background: #e7918b; 
 }
 
-/* Блок кнопок */
 .buttons-wrapper {
     display: flex;
-    gap: 15px;
-    width: 100%;
+    gap: 20px;
 }
 
-/* Кнопки с градиентом и скруглением 5px по ТЗ */
+
 .btn {
-    flex: 1;
-    padding: 12px 0;
-    font-size: 1.8rem;
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
     font-weight: bold;
-    color: white;
-    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: #fff;
     border: none;
-    border-radius: 5px; /* Радиальное скругление 5px */
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.1s, opacity 0.3s;
+    background: radial-gradient(circle at 30% 30%, #ff8a65, #d84315);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s ease, opacity 0.2s ease;
 }
 
 .btn:hover:not(:disabled) {
     transform: translateY(-2px);
 }
 
-/* Неактивная кнопка */
-.btn:disabled {
-    background: linear-gradient(45deg, #888888, #aaaaaa);
-    cursor: not-allowed;
-    opacity: 0.5;
+.btn:active:not(:disabled) {
+    transform: translateY(1px);
 }
 
-/* Окошко для сообщений */
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
 .message-box {
-    min-height: 40px;
-    text-align: center;
-    font-size: 0.95rem;
-    color: #ffeb3b;
+    min-height: 24px;
+    font-size: 16px;
     font-weight: 600;
+    color: #ffeb3b;
+    text-align: center;
 }
