@@ -1,53 +1,43 @@
-// Находим элементы DOM
 const resultBox = document.getElementById('result');
 const btnPlus = document.getElementById('btn-plus');
 const btnMinus = document.getElementById('btn-minus');
 const messageBox = document.getElementById('message');
 
-// Начальное значение счетчика
+const MAX = 10;
+const MIN = -10;
+
 let count = 0;
 
-// Функция обновления интерфейса
-function updateCounter() {
-    // 1. Выводим значение
+function updateUI() {
     resultBox.textContent = count;
 
-    // 2. Меняем цвет фона окошка
-    resultBox.classList.remove('red', 'yellow', 'green');
-    if (count === 0) {
-        resultBox.classList.add('red');
-    } else if (count > 0) {
-        resultBox.classList.add('yellow');
+    resultBox.classList.remove('positive', 'negative', 'zero');
+    if (count > 0) {
+        resultBox.classList.add('positive');
+    } else if (count < 0) {
+        resultBox.classList.add('negative');
     } else {
-        resultBox.classList.add('green');
+        resultBox.classList.add('zero');
     }
 
-    // 3. Блокировка/разблокировка кнопок
-    btnPlus.disabled = (count >= 10);
-    btnMinus.disabled = (count <= -10);
+    btnPlus.disabled = count >= MAX;
+    btnMinus.disabled = count <= MIN;
 
-    // 4. Проверка на экстремальное значение
-    if (count === 10 || count === -10) {
+    if (count === MAX || count === MIN) {
         messageBox.textContent = 'Вы достигли экстремального значения';
     } else {
         messageBox.textContent = '';
     }
 }
 
-// Слушатели событий
 btnPlus.addEventListener('click', () => {
-    if (count < 10) {
-        count++;
-        updateCounter();
-    }
+    count++;
+    updateUI();
 });
 
 btnMinus.addEventListener('click', () => {
-    if (count > -10) {
-        count--;
-        updateCounter();
-    }
+    count--;
+    updateUI();
 });
 
-// Первоначальный вызов для установки правильного состояния
-updateCounter();
+updateUI();
